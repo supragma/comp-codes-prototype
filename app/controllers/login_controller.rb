@@ -19,9 +19,10 @@ class LoginController < ApplicationController
       render 'badlogin'
       return
     end 
-    # TODO Put cookie on user.
+    # Put cookie on user.
+    session[:current_user_id] = user.id
     # TODO Redirect them to the dashboard.
-
+    redirect_to controller: 'dashboard'
   end
 
   def forgotpassword
@@ -37,6 +38,9 @@ class LoginController < ApplicationController
 
   def password_bad?(user)
     password_hash = Digest::SHA512.hexdigest params["psw"]
+    puts params["psw"]
+    puts password_hash
+    puts user.pw
     return password_hash != user.pw
   end
 end
