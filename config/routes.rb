@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'login', to: 'login#index'
   post 'login', to: 'login#create'
   get 'forgotpassword', to: 'login#forgotpassword'
-
+  get 'posts', to: 'post#index'
+  post 'posts', to: 'post#create'
+  get 'post/:id', to: 'post#show'
   get 'dashboard', to: 'dashboard#index'
 end
