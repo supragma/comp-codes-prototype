@@ -24,6 +24,10 @@ class LoginController < ApplicationController
 
   end
 
+  def forgotpassword
+    render 'forgotpassword'
+  end
+
   private
   def get_user
     user = User.find_by email: params["uname"]

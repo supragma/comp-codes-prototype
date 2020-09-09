@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'signup', to: 'signup#index'
   post 'signup', to: 'signup#create'
+  get 'draftersignup', to: 'draftersignup#index'
+  post 'draftersignup', to: 'draftersignup#create'
   get 'login', to: 'login#index'
   post 'login', to: 'login#create'
+  get 'forgotpassword', to: 'login#forgotpassword'
 end
