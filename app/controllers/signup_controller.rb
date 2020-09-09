@@ -1,3 +1,4 @@
+require 'digest'
 class SignupController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -9,7 +10,8 @@ class SignupController < ApplicationController
     if params["psw"] != params["psw-repeat"]
       render 'passwordmismatch' 
     end
-    User.create(email: params["email"], password: params["pwd"], first_name: params["fname"], last_name: params["lname"])
+    password_hash = Digest::SHA512.hexdigest params["psw"]
+    User.create!(email: params["email"], pw: password_hash, first_name: params["fname"], last_name: params["lname"], role: "homeowner")
 
     render 'success'
   end
