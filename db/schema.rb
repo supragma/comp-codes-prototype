@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_165901) do
+ActiveRecord::Schema.define(version: 2020_09_08_230419) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_165901) do
     t.datetime "remember_token_expires_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role"
   end
 
 end
