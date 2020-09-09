@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get 'posts', to: 'post#index'
   post 'posts', to: 'post#create'
   get 'post/:id', to: 'post#show'
+  post 'post/images/:id', to: 'post#images'
   get 'dashboard', to: 'dashboard#index'
 end

@@ -56,4 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'trestle'
 gem 'trestle-auth'
 
-gem 'bcrypt'
+gem "google-cloud-storage", "~> 1.11", require: false
+gem 'poppler' 
+

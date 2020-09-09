@@ -19,4 +19,12 @@ class PostController < ApplicationController
     @job = Post.find_by(id: id, user_id: current_user.id)
     render 'show'
   end
+
+  def images
+    # Append images to a post.
+    @job = Post.where(id: params["id"], user_id: session[:current_user_id])
+    puts @job
+    @job[0].files.attach(params["documents"])
+    redirect_to '/post/' + params["id"]
+  end
 end
