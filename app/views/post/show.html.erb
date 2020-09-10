@@ -6,7 +6,7 @@ Description: <%= @job.description %>
 <br>
 <br>
 <br>
-<h3>Images Uploaded</h3>
+<h3>Files Uploaded</h3>
 <% @job.files.each do |file| %>
     <li>
       <a href="<%= url_for(file) %>"><%= image_tag(file, style: 'height:100px;width:auto;') %></a>
