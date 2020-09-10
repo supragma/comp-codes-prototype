@@ -1,3 +1,3 @@
 class Image < ApplicationRecord
-  hash_one :post
+  has_one :post
 end
