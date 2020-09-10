@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   post 'posts', to: 'post#create'
   get 'post/:id', to: 'post#show'
   post 'post/images/:id', to: 'post#images'
+  post 'post/comments/:id', to: 'post#comments'
   get 'dashboard', to: 'dashboard#index'
+  get 'logout', to: 'logout#index'
 end

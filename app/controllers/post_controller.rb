@@ -17,6 +17,7 @@ class PostController < ApplicationController
     id = params[:id]
     current_user = User.find_by_id(session[:current_user_id])
     @job = Post.find_by(id: id, user_id: current_user.id)
+    @comments = Comment.where(post_id: @job.id)
     render 'show'
   end
 
@@ -25,6 +26,15 @@ class PostController < ApplicationController
     @job = Post.where(id: params["id"], user_id: session[:current_user_id])
     puts @job
     @job[0].files.attach(params["documents"])
+    redirect_to '/post/' + params["id"]
+  end
+
+  def comments
+    # Append a comment to a job.
+    @job = Post.where(id: params["id"], user_id: session[:current_user_id])
+    Comment.create!(user_id: session[:current_user_id],
+                    post_id: @job[0].id,
+                    content: params["comment"])
     redirect_to '/post/' + params["id"]
   end
 end

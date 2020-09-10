@@ -1,11 +1,16 @@
+<div class="mx-auto" style="width: 75%;"
 You are signed in as "<%= @current_user.email %>" with role "<%= @current_user.role %>"
 <br>
-See current jobs:
+<h3>See current jobs:</h3>
 <% @jobs.each do |j| %>
   <div>
     <a href="post/<%= j.id %>/">Name: <%= j.name %>, Description: <%= j.description %></a>
   </div>
 <% end %>
+
+<% if @jobs.length == 0 %>
+  There are no jobs. Create one.
+<% end %>
 <br>
 Create a new job:
-<a href="posts">+ Click here</a>
+<a href="posts">Click here</a>

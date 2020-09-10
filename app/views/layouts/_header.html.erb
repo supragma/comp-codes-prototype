@@ -1,3 +1,6 @@
 <div>
-  <a class="navbar-brand" href="https://www.thecompcodes.com"><%= image_tag("logo.jpg", class: 'logo') %></a>
+  <a class="navbar-brand" href="/dashboard"><%= image_tag("logo.jpg", class: 'logo') %></a>
+  <% if is_logged_in? %>
+    <a href="/logout"><button class="btn btn-primary">Log Out</button></a>
+  <% end %>
 </div>

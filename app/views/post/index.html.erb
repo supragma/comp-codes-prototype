@@ -1,8 +1,9 @@
 <h2>Create New Job</h2>
 
-<form action="/posts" method="POST" id="usrform">
-  <div>Name: <input type="text" name="name"></div>
+<form class="form-group mx-auto" style="width: 75%;" action="/posts" method="POST" id="usrform">
+  <div>Name: <input class="form-control" type="text" name="name" placeholder="Enter name of job"></div>
   <div>Description:</div>
-  <textarea rows="4" cols="50" name="description" form="usrform"></textarea>
-  <input type="submit">
+  <textarea rows="4" cols="50" class="form-control" name="description" form="usrform" placeholder="Enter job description"></textarea>
+  <br>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
 </form>
