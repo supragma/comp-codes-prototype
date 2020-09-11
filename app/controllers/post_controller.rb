@@ -28,8 +28,13 @@ class PostController < ApplicationController
 
   def images
     # Append images to a post.
-    @job = Post.where(id: params["id"], user_id: session[:current_user_id])
-    puts @job
+    @current_user = User.find_by_id(session[:current_user_id])
+    if @current_user.role == "drafter"
+      @job = Post.where(id: params[:id])
+    else
+      # Is homeowner so restrict what they can see.
+      @job = Post.where(id: params[:id], user_id: @current_user.id)
+    end
     @job[0].files.attach(params["documents"])
     redirect_to '/post/' + params["id"]
   end
