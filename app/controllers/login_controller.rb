@@ -4,7 +4,11 @@ class LoginController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def index
-    render 'index'
+    if session[:current_user_id].nil?
+      render 'index'
+    else
+      redirect_to dashboard_url
+    end
   end
 
   # Create a session.

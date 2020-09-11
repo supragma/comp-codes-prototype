@@ -11,8 +11,8 @@ class DraftersignupController < ApplicationController
       render 'passwordmismatch' 
     end
     password_hash = Digest::SHA512.hexdigest params["psw"]
-    User.create!(email: params["email"], pw: password_hash, first_name: params["fname"], last_name: params["lname"], role: "drafter")
-
-    render 'success'
+    user = User.create!(email: params["email"], pw: password_hash, first_name: params["fname"], last_name: params["lname"], role: "drafter")
+    session[:current_user_id] = user.id
+    redirect_to dashboard_url
   end
 end
