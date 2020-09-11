@@ -1,4 +1,6 @@
 <div class="mx-auto" style="width: 75%;">
+You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name %> (<%= @current_user.email %>) with role "<%= @current_user.role %>"
+
 <h1>Your Job</h1>
 
 Name:<%= @job.name %> <br>

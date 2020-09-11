@@ -15,12 +15,12 @@ class PostController < ApplicationController
 
   def show
     id = params[:id]
-    current_user = User.find_by_id(session[:current_user_id])
-    if current_user.role == "drafter"
+    @current_user = User.find_by_id(session[:current_user_id])
+    if @current_user.role == "drafter"
       @job = Post.find_by(id: id)
     else
       # Is homeowner so restrict what they can see.
-      @job = Post.find_by(id: id, user_id: current_user.id)
+      @job = Post.find_by(id: id, user_id: @current_user.id)
     end
     @comments = Comment.where(post_id: @job.id)
     render 'show'

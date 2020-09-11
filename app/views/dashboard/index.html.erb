@@ -1,5 +1,6 @@
-<div class="mx-auto" style="width: 75%;"
-You are signed in as "<%= @current_user.email %>" with role "<%= @current_user.role %>"
+<div class="mx-auto" style="width: 75%;">
+You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name %> (<%= @current_user.email %>) with role "<%= @current_user.role %>"
+</div>
 <br>
 <h3>Current Jobs</h3>
 <% @jobs.each do |j| %>
