@@ -4,7 +4,7 @@ You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name
 <br>
 <h3>Current Jobs</h3>
 <% @jobs.each do |j| %>
-  <div class="card mb-lg-0 mb-4 h-100">
+  <div class="card mb-lg-0 mb-4 h-100" style="margin-left:10px; margin-right:10px;">
     <div class="card-body p-5">
       <div class="mb-4">
         <a href="post/<%= j.id %>/"><%= j.name %></a>
@@ -20,4 +20,6 @@ You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name
   There are no jobs. Create one.
 <% end %>
 <br>
-<a href="posts"><button class="btn btn-success">Create Job</button></a>
+<div style="margin-left:10px; margin-right: 10px; margin-bottom: 10px;">
+  <a href="posts"><button class="btn btn-success" style="width:400px;">Create Job</button></a>
+</div>
