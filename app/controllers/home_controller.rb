@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    render 'index'
+    redirect_to dashboard_url
   end
 end
