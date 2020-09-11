@@ -1,10 +1,12 @@
-<div class="mx-auto" style="width: 75%;">
+<div class="mx-auto" style="width: 75%; font-weight:100;">
 You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name %> (<%= @current_user.email %>) with role "<%= @current_user.role %>"
 </div>
 <br>
-<h3>Current Jobs</h3>
+<div style="padding: 10px;">
+<h2>Current Jobs</h2>
+</div>
 <% @jobs.each do |j| %>
-  <div class="card mb-lg-0 mb-4 h-100" style="margin-left:10px; margin-right:10px;">
+  <div class="card mb-lg-0 mb-4 h-100" style="font-weight:1000; font-size:20px; margin-left:10px; margin-right:10px;">
     <div class="card-body p-5">
       <div class="mb-4">
         <%= j.name %> by <b><%= j.user.first_name %> <%= j.user.last_name %></b>
@@ -22,5 +24,5 @@ You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name
 <% end %>
 <br>
 <div style="margin-left:10px; margin-right: 10px; margin-bottom: 10px;">
-  <a href="posts"><button class="btn btn-success" style="width:400px;">Create Job</button></a>
+  <a href="posts"><button class="btn btn-success" style="width:350px;">Create Job</button></a>
 </div>
