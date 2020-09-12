@@ -6,6 +6,8 @@ class DashboardController < ApplicationController
       @jobs = Post.where(user_id: @current_user.id)
     elsif @current_user.role == "drafter"
       @jobs = Post.all
+    elsif @current_user.role == "contractor"
+      @jobs = Post.all
     else
       redirect_to '/login'
     end

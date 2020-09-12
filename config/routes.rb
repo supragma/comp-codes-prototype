@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post 'signup', to: 'signup#create'
   get 'draftersignup', to: 'draftersignup#index'
   post 'draftersignup', to: 'draftersignup#create'
+  get 'contractorsignup', to: 'contractorsignup#index'
+  post 'contractorsignup', to: 'contractorsignup#create'
   get 'login', to: 'login#index'
   post 'login', to: 'login#create'
   get 'forgotpassword', to: 'login#forgotpassword'
