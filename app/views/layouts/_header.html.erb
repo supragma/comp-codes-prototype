@@ -2,7 +2,9 @@
   <a class="navbar-brand" href="/dashboard"><%= image_tag("logo.jpg", class: 'logo') %></a>
   <% if is_logged_in? %>
     <a href="/dashboard"><button class="btn btn-primary">Dashboard</button></a>
-    <a href="/posts"><button class="btn btn-primary">Create Job</button></a>
+    <% if @current_user.role == "homeowner" %>
+      <a href="/posts"><button class="btn btn-primary">Create Job</button></a>
+    <% end %>
     <a href="/logout"><button class="btn btn-primary">Log Out</button></a>
   <% end %>
 </div>

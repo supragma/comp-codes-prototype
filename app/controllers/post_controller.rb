@@ -5,13 +5,35 @@ class PostController < ApplicationController
   def index
     render 'index'
   end
+
   def create
     desc = params["description"] 
     name = params["name"] 
+    contractor_bid = params["contractor-bid"] == "true"
     current_user = User.find_by_id(session[:current_user_id])
-    Post.create!(name: name, description: desc, user_id: current_user.id)
+    Post.create!(name: name, description: desc, user_id: current_user.id,
+                 contractorbid: contractor_bid)
     redirect_to dashboard_url
   end
+
+  def edit
+    jobs = Post.where(id: params[:id], user_id: session[:current_user_id])
+    @job = jobs[0]
+    render 'edit'
+  end
+
+  def update
+    jobs = Post.where(id: params[:id], user_id: session[:current_user_id])
+    @job = jobs[0]
+    @comments = Comment.where(post_id: @job.id)
+    desc = params["description"] 
+    name = params["name"] 
+    contractor_bid = params["contractor-bid"] == "true"
+    current_user = User.find_by_id(session[:current_user_id])
+    @job.update(id: params[:id], name: name, description: desc, contractorbid: contractor_bid, user_id: current_user.id,
+                 contractorbid: contractor_bid)
+    redirect_to controller: 'post', action: 'show', id: @job.id
+   end
 
   def show
     id = params[:id]

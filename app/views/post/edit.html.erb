@@ -3,10 +3,10 @@
 
 <h2>Create New Job</h2>
 
-<form class="form-group mx-auto" action="/posts" method="POST" id="usrform">
-  <div>Name: <input class="form-control" type="text" name="name" placeholder="Enter name of job"></div>
+<form class="form-group mx-auto" action="/post/edit/<%= @job.id %>" method="POST" id="usrform">
+  <div>Name: <input class="form-control" type="text" name="name" placeholder="Enter name of job" value="<%= @job.name %>" ></div>
   <div>Description:</div>
-  <textarea rows="4" cols="50" class="form-control" name="description" form="usrform" placeholder="Enter job description"></textarea>
+  <textarea rows="4" cols="50" class="form-control" name="description" form="usrform" placeholder="Enter job description"><%= @job.description %></textarea>
   <br>
   <label for="contractor-bid">All for contractors to bid on this job</label>
   <input type="checkbox" id="contractor-bid" name="contractor-bid" value="true" checked>

@@ -5,8 +5,15 @@ You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name
 <br>
 <div class="card">
 <div style="padding:10px;">
-<h3><%= @job.name %> </h3>
+<h3><%= @job.name %></h3>
+
+<% if @current_user.role == "homeowner" %>
+  <a style="font-size: 15px; float: right;" href="/post/edit/<%= @job.id %>">Edit</a>
+<% end %>
 <%= @job.description %> 
+<br>
+<br>
+Allow for contractors to bid on this job: <b><%= @job.contractorbid %></b>
 </div>
 </div>
 <br>

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'forgotpassword', to: 'login#forgotpassword'
   get 'posts', to: 'post#index'
   post 'posts', to: 'post#create'
+  get 'post/edit/:id', to: 'post#edit'
+  post 'post/edit/:id', to: 'post#update'
   get 'post/:id', to: 'post#show'
   post 'post/images/:id', to: 'post#images'
   post 'post/comments/:id', to: 'post#comments'
