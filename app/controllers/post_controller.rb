@@ -30,8 +30,7 @@ class PostController < ApplicationController
     name = params["name"] 
     contractor_bid = params["contractor-bid"] == "true"
     current_user = User.find_by_id(session[:current_user_id])
-    @job.update(id: params[:id], name: name, description: desc, contractorbid: contractor_bid, user_id: current_user.id,
-                 contractorbid: contractor_bid)
+    @job.update(id: params[:id], name: name, description: desc, contractorbid: contractor_bid, user_id: current_user.id)
     redirect_to controller: 'post', action: 'show', id: @job.id
    end
 
