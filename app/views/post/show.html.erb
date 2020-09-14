@@ -26,7 +26,8 @@ Allow for contractors to bid on this job: <b><%= @job.contractorbid %></b>
 <br>
 <h3>Files Uploaded</h3>
 <% @job.files.each do |file| %>
-      <a href="<%= url_for(file) %>"><%= image_tag(file, style: 'height:100px;width:auto;', class:"img-thumbnail rounded") %></a>
+      <div><a href="<%= url_for(file) %>"><%= image_tag(file, style: 'height:100px;width:auto;', class:"img-thumbnail rounded") %></a></div>
+      <div><%= file.filename %></div>
 <% end %>
 
 <% if @job.files.length == 0 %>
