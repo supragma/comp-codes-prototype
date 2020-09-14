@@ -10,7 +10,13 @@ You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name
 <% if @current_user.role == "homeowner" %>
   <a style="font-size: 15px; float: right;" href="/post/edit/<%= @job.id %>">Edit</a>
 <% end %>
+<div class="text-muted time">
+Created <%= time_ago_in_words(@job.created_at) %> ago
+</div>
+<br>
+<p class="text-muted text-justify">
 <%= @job.description %> 
+</p>
 <br>
 <br>
 Allow for contractors to bid on this job: <b><%= @job.contractorbid %></b>
@@ -55,7 +61,7 @@ There are no files uploaded at this time.
                             <a href="#"><b><%= comment.user.first_name %></b></a>
                             made a post.
                         </div>
-                        <h6 class="text-muted time"><%= comment.created_at %></h6>
+                        <h6 class="text-muted time">Created <%= time_ago_in_words(comment.created_at) %> ago</h6>
                     </div>
                 </div> 
                 <div class="post-description" style="padding:10px;"> 
