@@ -46,7 +46,7 @@ class PostController < ApplicationController
       # Is homeowner so restrict what they can see.
       @job = Post.find_by(id: id, user_id: @current_user.id)
     end
-    @comments = Comment.where(post_id: @job.id)
+    @comments = Comment.where(post_id: @job.id).order("created_at DESC")
     render 'show'
   end
 
