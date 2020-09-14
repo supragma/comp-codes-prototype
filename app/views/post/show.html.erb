@@ -14,7 +14,7 @@ You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name
 Created <%= time_ago_in_words(@job.created_at) %> ago
 </div>
 <br>
-<p class="text-muted text-justify">
+<p class="text-muted">
 <%= @job.description %> 
 </p>
 <br>
@@ -26,7 +26,7 @@ Allow for contractors to bid on this job: <b><%= @job.contractorbid %></b>
 <br>
 <h3>Files Uploaded</h3>
 <% @job.files.each do |file| %>
-      <a href="<%= url_for(file) %>"><%= image_tag(file, style: 'height:100px;width:auto;') %></a>
+      <a href="<%= url_for(file) %>"><%= image_tag(file, style: 'height:100px;width:auto;', class:"img-thumbnail rounded") %></a>
 <% end %>
 
 <% if @job.files.length == 0 %>
