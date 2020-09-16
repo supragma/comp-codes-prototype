@@ -42,9 +42,6 @@ class LoginController < ApplicationController
 
   def password_bad?(user)
     password_hash = Digest::SHA512.hexdigest params["psw"]
-    puts params["psw"]
-    puts password_hash
-    puts user.pw
     return password_hash != user.pw
   end
 end
