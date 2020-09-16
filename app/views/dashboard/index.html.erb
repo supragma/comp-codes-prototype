@@ -2,7 +2,11 @@
 You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name %> (<%= @current_user.email %>) with role "<%= @current_user.role %>"
 <br>
 <div style="padding: 10px;">
-<h2>Current Jobs</h2>
+<% if @current_user.role == "homeowner" || @current_user.role == "drafter" %>
+  <h2>Current Jobs</h2>
+<% elsif @current_user.role == "contractor" %>
+  <h2>Jobs to bid on</h2>
+<% end %>
 </div>
 <% @jobs.each do |j| %>
   <div class="card mb-lg-0 mb-4 h-100" style="font-weight:300; font-size:20px; margin-left:10px; margin-right:10px;">
@@ -13,8 +17,6 @@ You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name
       <p><%= j.description %></p>
       <a href="post/<%= j.id %>/"><button class="btn btn-success">Go To Job</button></a>
     </div>
-  </div>
-  <div>
   </div>
 <% end %>
 

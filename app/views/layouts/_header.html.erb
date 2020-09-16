@@ -5,6 +5,14 @@
     <% if @current_user.role == "homeowner" %>
       <a href="/posts"><button class="btn btn-primary">Create Job</button></a>
     <% end %>
+    <% if @current_user.role == "contractor" %>
+      <a href="/profile"><button class="btn btn-primary">Profile</button></a>
+    <% end %>
     <a href="/logout"><button class="btn btn-primary">Log Out</button></a>
   <% end %>
 </div>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>

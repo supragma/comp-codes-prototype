@@ -57,13 +57,16 @@ There are no files uploaded at this time.
         <div class="col-12">
             <div class="card card-white post">
                 <div class="post-heading">
-                    <div class="float-left meta">
-                        <div class="title h5">
-                            <a href="#"><b><%= comment.user.first_name %></b></a>
-                            made a post.
-                        </div>
-                        <h6 class="text-muted time">Created <%= time_ago_in_words(comment.created_at) %> ago</h6>
+                  <% if comment.user.role == "contractor" %>
+                    <a href="/profile/<%= get_contractor_profile_id(comment.user)%>">See Profile</a>
+                  <% end %>
+                  <div class="float-left meta">
+                  <div style="float:right;"></div>
+                    <div class="title h5">
+                      <a href="#"><b><%= comment.user.first_name %></b></a> made a post.
                     </div>
+                    <h6 class="text-muted time">Created <%= time_ago_in_words(comment.created_at) %> ago</h6>
+                  </div>
                 </div> 
                 <div class="post-description" style="padding:10px;"> 
                     <p><%= comment.content %></p>

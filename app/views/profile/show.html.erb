@@ -1,0 +1,21 @@
+
+  <div class="card mb-lg-0 mb-4 h-100" style="font-weight:300; font-size:20px; margin-left:10px; margin-right:10px;">
+    <div class="card-body p-5">
+      <div class="mb-4">
+<% if @current_user.role == "contractor" %>
+  <div style="float: right;"><a href="/profile/edit/<%= @profile.id %>">Edit</a></div>
+<% end %>
+        <div><h4>Name</h4></div>
+        <div><%= @profile.name %></div>
+        <div><h4>Description</h4></div>
+        <div><%= @profile.description%></div>
+        <div><h4>Website</h4></div>
+        <div><%= @profile.website%></div>
+        <div> <a href="<%= show_website(@profile.website) %>">Link</a> </div>
+        <div><h4>Address</h4></div>
+        <div><%= @profile.address%></div>
+      </div>
+    </div>
+  </div>
+
+<br>

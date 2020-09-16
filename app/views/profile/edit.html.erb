@@ -1,0 +1,19 @@
+
+<div class="mx-auto" style="width: 75%; font-weight:100;">
+
+<h2>Update/Create Your Profile</h2>
+
+<form class="form-group mx-auto" action="/profile/edit/<%= @profile.id%>" method="POST" id="usrform">
+  <div>Name: <input class="form-control" type="text" name="name" placeholder="Enter name of job" value="<%= @profile.name %>" ></div>
+  <div>Address:
+    <textarea rows="4" cols="50" class="form-control" name="address" form="usrform" placeholder="Enter organization address"><%= @profile.address%></textarea>
+  </div>
+  <br>
+  <div>Website: <input class="form-control" type="text" name="website" placeholder="Enter Website" value="<%= @profile.website%>" ></div>
+  <div>Description:</div>
+  <textarea rows="4" cols="50" class="form-control" name="description" form="usrform" placeholder="Enter organization description"><%= @profile.description %></textarea>
+  <br>
+  <button class="btn btn-success my-2 my-sm-0" type="submit">Submit</button>
+</form>
+
+</div>
