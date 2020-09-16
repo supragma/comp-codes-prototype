@@ -12,7 +12,9 @@ You are signed in as <%= @current_user.first_name %> <%= @current_user.last_name
   <div class="card mb-lg-0 mb-4 h-100" style="font-weight:300; font-size:20px; margin-left:10px; margin-right:10px;">
     <div class="card-body p-5">
       <div class="mb-4">
+        <% if @current_user == "homeowner" %>
         <div style="float: right;"><a href="/post/edit/<%= j.id %>/">Edit Job</a></div>
+        <% end %>
         <%= j.name %> by <b><%= j.user.first_name %> <%= j.user.last_name %></b> created <%= time_ago_in_words(j.created_at) %> ago
       </div>
       <p><%= j.description %></p>
