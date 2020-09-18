@@ -1,4 +1,3 @@
-
   <div class="card mb-lg-0 mb-4 h-100" style="font-weight:300; font-size:20px; margin-left:10px; margin-right:10px;">
     <div class="card-body p-5">
       <div class="mb-4">
@@ -17,5 +16,68 @@
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+ <h2>References</h2>
+        </div>
+    </div>
+  </div>
+<% @references.each do |r| %>
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-white post">
+                <div class="post-heading">
+                  <div class="float-left meta">
+                  <div style="float:right;"></div>
+                    <div class="title h5">
+                      <a href="#"><b><%= first_name(r) %></b></a> left a refferal.
+                    </div>
+                    <h6 class="text-muted time">Created <%= time_ago_in_words(r.created_at) %> ago</h6>
+                  </div>
+                </div>
+                <div class="post-description" style="padding:10px;">
+                  <p><%= r.content %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+<% end %>
 
+ <% if @references.length == 0 %>
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-white post">
+                <div class="post-heading">
+                  <div class="float-left meta">
+                  <div style="float:right;"></div>
+                    <div class="title h5">
+  <h4>There are no references at this time for this contractor</h4>
+                  </div>
+                </div>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 <br>
+<br>
+
+<% if @current_user.role == "homeowner" %>
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+<form class="form-group mx-auto" action="/reference/<%= @profile.id %>" method="POST" id="usrform">
+  <div><h4>Leave a Reference</h4></div>
+  <textarea rows="4" cols="50" class="form-control" name="description" form="usrform" placeholder="Enter Reference for this Contractor"></textarea>
+  <br>
+  <button class="btn btn-success my-2 my-sm-0" type="submit">Submit</button>
+        </div>
+     </div>
+  </div>
+</form>
+<% end %>

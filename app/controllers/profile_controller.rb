@@ -4,11 +4,8 @@ class ProfileController < ApplicationController
 
   def show
     @current_user = User.find_by_id(session[:current_user_id])
-    if @current_user == "homeowner" || @current_user == "drafter"
-      @profile = Profile.find_by_id(params[:id])
-    else
-      @profile = Profile.find_by_user_id(session[:current_user_id])
-    end
+    @profile = Profile.find_by_id(params[:id])
+    @references = Reference.where(profile_id: @profile.id)
   end
 
   def edit
@@ -30,6 +27,13 @@ class ProfileController < ApplicationController
     @profile.update(id: params[:id], name: params[:name], description: params[:description], website: params[:website], address: params[:address])
     @profile = Profile.find_by_id(params[:id])
     flash[:info] = "Profile has been updated/created!"
-    redirect_to '/profile'
+    redirect_to "/profile/#{@profile.id}"
+  end
+
+  def reference
+    user = User.find_by_id(session[:current_user_id])
+    Reference.create!(profile_id: params[:id], user_id: user.id, content: params["content"])
+    flash["info"] = "You posted a reference!"
+    redirect_to "/profile/#{params[:id]}"
   end
 end

@@ -6,4 +6,8 @@ module ProfileHelper
       return "https://" + website
     end
   end
+
+  def first_name(ref)
+    User.find_by_id(ref.user_id).first_name
+  end
 end
